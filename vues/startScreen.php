@@ -17,12 +17,12 @@
     <form action="./fight" method="POST">
         <main class="start">
             <div class="selection">
-                <img src="../img/sprites/<?php echo $rand1 ?>.png" alt="">
+                <img src="" alt="">
                 <h2>Joueur 1</h2>
                 <select name="player1" id="player1">
                     <?php foreach ($listePersos as $perso) { ?>
                         <option
-                            value="<?php echo $perso["id"] ?>"<?php echo $perso["id"] == $rand1 ? " selcted=selected" : ""; ?>>
+                            value="<?php echo $perso["id"] ?>"<?php echo $perso["id"] == $rand1 ? " selected=selected" : ""; ?>>
                             <?php echo $perso["nom"] ?>
                         </option>
                     <?php } ?>
@@ -34,7 +34,7 @@
             <input type="submit" value="Start" class="bouton play" lang="en">
 
             <div class="selection">
-                <img src="../img/sprites/<?php echo $rand2 ?>.png" alt="">
+                <img src="" alt="">
                 <h2>Joueur 2</h2>
                 <select name="player2" id="player2">
                     <?php foreach ($listePersos as $perso) { ?>
@@ -43,6 +43,7 @@
                             <?php echo $perso["nom"] ?>
                         </option>
                     <?php } ?>
+                    <option value="2">Papyrus</option>
                 </select>
             </div>
         </main>
@@ -51,6 +52,8 @@
         <a href="./newCharacter" class="bouton plus">Ajouter un personnage</a>
         <a href="./allCharacters" class="bouton liste">Liste des personnages</a>
     </footer>
+
+    <script src="../scripts/startScreen.js"></script>
 </body>
 
 </html>

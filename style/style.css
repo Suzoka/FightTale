@@ -161,6 +161,7 @@ footer {
 .selection select option {
     font-size: 1rem;
     font-family: 'Determination', sans-serif;
+    color: black !important;
 }
 
 .versus {

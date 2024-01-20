@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("./scripts/database.php");
 include("./scripts/Personnage.php");
 include("./scripts/script.php");
@@ -15,9 +15,12 @@ switch ($page) {
     case "accueil":
     default:
         $listePersos = getAllCharacters()->fetchAll(PDO::FETCH_ASSOC);
-        $rand1 = $listePersos[rand(0, count($listePersos)-1)]["id"];
-        $rand2 = $listePersos[rand(0, count($listePersos)-1)]["id"];
+        $rand1 = $listePersos[rand(0, count($listePersos) - 1)]["id"];
+        $rand2 = $listePersos[rand(0, count($listePersos) - 1)]["id"];
         include("./vues/startScreen.php");
+        break;
+    case "fight":
+        var_dump($_POST);
         break;
 }
 ?>

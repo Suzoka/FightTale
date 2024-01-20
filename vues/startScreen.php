@@ -43,7 +43,6 @@
                             <?php echo $perso["nom"] ?>
                         </option>
                     <?php } ?>
-                    <option value="2">Papyrus</option>
                 </select>
             </div>
         </main>

@@ -18,10 +18,10 @@
         <table>
             <thead>
                 <tr>
-                    <th scope="column">Apparence</th>
-                    <th scope="column">Nom</th>
-                    <th scope="column">Attaque</th>
-                    <th scope="column">PV</th>
+                    <th scope="col">Apparence</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Attaque</th>
+                    <th scope="col">PV</th>
                 </tr>
             </thead>
             <tbody>

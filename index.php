@@ -26,5 +26,8 @@ switch ($page) {
         $listePersos = getAllCharacters()->fetchAll(PDO::FETCH_ASSOC);
         include("./vues/allCharacters.php");
         break;
+    case "newCharacter" :
+        include("./vues/newCharacter.php");
+        break;
 }
 ?>

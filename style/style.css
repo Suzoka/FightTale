@@ -268,3 +268,19 @@ table tbody {
     overflow-y: hidden;
     width: 100%;
 }
+
+input.bouton.plus {
+    font-size: 3rem;
+    font-family: 'Determination', sans-serif;
+    color: white;
+    cursor: pointer;
+    border-color: white;
+    padding-left: 5rem;
+    background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='34' height='33' viewBox='0 0 34 33' fill='none'><path d='M3 16.5H31M17 2.5V30.5' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat left 1.25rem center;
+}
+
+input.bouton.plus:hover {
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczNCcgaGVpZ2h0PSczMycgdmlld0JveD0nMCAwIDM0IDMzJyBmaWxsPSdub25lJz48cGF0aCBkPSdNMyAxNi41SDMxTTE3IDIuNVYzMC41JyBzdHJva2U9JyNGRkY2MDAnIHN0cm9rZS13aWR0aD0nNScgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJy8+PC9zdmc+") no-repeat left 1.25rem center;
+    border-color: #FFF600;
+    color: #FFF600;
+}

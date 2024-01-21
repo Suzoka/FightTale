@@ -37,7 +37,6 @@
         </table>
     </main>
 
-    <!-- <script src="../scripts/charactersList.js"></script> -->
 </body>
 
 </html>

@@ -22,5 +22,9 @@ switch ($page) {
     case "fight":
         var_dump($_POST);
         break;
+    case "allCharacters" :
+        $listePersos = getAllCharacters()->fetchAll(PDO::FETCH_ASSOC);
+        include("./vues/allCharacters.php");
+        break;
 }
 ?>

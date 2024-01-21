@@ -103,6 +103,14 @@ color: white;
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczNCcgaGVpZ2h0PSczOScgdmlld0JveD0nMCAwIDM0IDM5JyBmaWxsPSdub25lJz48cGF0aCBkPSdNMzQgMTkuNUwwLjI0OTk5NiAzOC45ODU2TDAuMjQ5OTk2IDAuMDE0NDI5NUwzNCAxOS41WicgZmlsbD0nI0ZGRjYwMCcvPjwvc3ZnPg==");
 }
 
+.bouton.back::before {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1NicgaGVpZ2h0PSc0Nicgdmlld0JveD0nMCAwIDU2IDQ2JyBmaWxsPSdub25lJz48cGF0aCBkPSdNMyAyM0g1M00zIDIzTDIzLjgzMzMgMi41TTMgMjNMMjMuODMzMyA0My41JyBzdHJva2U9JyNGQzdGMUUnIHN0cm9rZS13aWR0aD0nNScgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJy8+PC9zdmc+");
+}
+
+.bouton.back:hover::before {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1NicgaGVpZ2h0PSc0Nicgdmlld0JveD0nMCAwIDU2IDQ2JyBmaWxsPSdub25lJz48cGF0aCBkPSdNMyAyM0g1M00zIDIzTDIzLjgzMzMgMi41TTMgMjNMMjMuODMzMyA0My41JyBzdHJva2U9JyNGRkY2MDAnIHN0cm9rZS13aWR0aD0nNScgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJy8+PC9zdmc+");
+}
+
 footer {
     display: flex;
     justify-content: space-evenly;
@@ -172,5 +180,91 @@ footer {
 }
 
 form {
+    width: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+main.liste {
+    overflow-y: scroll;
+    width: 100%;
+    height: 60vh;
+}
+
+table {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 1px;
+    border-collapse: collapse;
+}
+
+table thead th {
+    font-size: 4rem;
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background-color: black;
+    position: sticky;
+    top: 0px;
+}
+
+table thead th::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+}
+
+table thead th:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 60vh;
+    width: 100%;
+    border-top: solid white 8px;
+    border-bottom: solid white 8px;
+} 
+table thead th:first-of-type:before {
+    border-left: solid white 8px ;
+}
+
+table thead th:last-of-type:before {
+    border-right: solid white 8px ;
+}
+
+table thead th:first-child {
+    text-align: center;
+}
+
+table tbody td, table tbody th {
+    font-size: 2.5rem;
+    padding: 1.5rem 0.75rem;
+    text-align: left;
+}
+
+table tbody td:first-child {
+    text-align: center;
+}
+
+table img {
+    height: 5rem;
+}
+
+table tbody {
+    overflow-y: hidden;
     width: 100%;
 }

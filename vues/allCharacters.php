@@ -27,10 +27,10 @@
             <tbody>
                 <?php foreach ($listePersos as $perso) { ?>
                     <tr>
-                        <td><img src="../img/sprites/<?php echo $perso["id"] ?>.png" alt=""></td>
-                        <th scope="row"><?php echo $perso["nom"] ?></th>
-                        <td><?php echo $perso["attaque"] ?></td>
-                        <td><?php echo $perso["vie"] ?></td>
+                        <td><img src="../img/sprites/<?php echo $perso->getId() ?>.png" alt=""></td>
+                        <th scope="row"><?php echo $perso->getNom() ?></th>
+                        <td><?php echo $perso->getAtk() ?></td>
+                        <td><?php echo $perso->getPv() ?></td>
                     </tr>
                 <?php } ?>
             </tbody>

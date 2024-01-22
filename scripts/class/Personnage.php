@@ -1,10 +1,16 @@
 <?php
 class Personnage
 {
+    private $id;
     private $nom;
     private $pv;
     private $atk;
     private $pvMax;
+
+    public function getId()
+    {
+        return $this->id;
+    }
 
     public function getNom()
     {
@@ -23,6 +29,9 @@ class Personnage
 
     public function setPv($newPv)
     {
+        if (!isset($this->pvMax)) {
+            $this->pvMax = $newPv;
+        }
         if ($newPv < 0) {
             $this->pv = 0;
             return;
@@ -48,12 +57,24 @@ class Personnage
         $this->nom = $name;
     }
 
-    public function __construct($nom, $vie, $atk)
+    public function setId($newId)
     {
-        $this->setNom($nom);
-        $this->pvMax = $vie;
-        $this->setPv($vie);
-        $this->setAtk($atk);
+        $this->id = $newId;
+    }
+
+    public function hydratation(array $data)
+    {
+        foreach ($data as $key => $value) {
+            $method = "set" . ucfirst($key);
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
+    }
+
+    public function __construct(array $data)
+    {
+        $this->hydratation($data);
     }
 
     public function crier()

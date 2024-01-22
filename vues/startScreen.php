@@ -22,8 +22,8 @@
                 <select name="player1" id="player1">
                     <?php foreach ($listePersos as $perso) { ?>
                         <option
-                            value="<?php echo $perso["id"] ?>"<?php echo $perso["id"] == $rand1 ? " selected=selected" : ""; ?>>
-                            <?php echo $perso["nom"] ?>
+                            value="<?php echo $perso->getId() ?>"<?php echo $perso->getId() == $rand1 ? " selected=selected" : ""; ?>>
+                            <?php echo $perso->getNom() ?>
                         </option>
                     <?php } ?>
                 </select>
@@ -39,8 +39,8 @@
                 <select name="player2" id="player2">
                     <?php foreach ($listePersos as $perso) { ?>
                         <option
-                            value="<?php echo $perso["id"] ?>"<?php echo $perso["id"] == $rand2 ? " selected=selected" : ""; ?>>
-                            <?php echo $perso["nom"] ?>
+                            value="<?php echo $perso->getId() ?>"<?php echo $perso->getId() == $rand2 ? " selected=selected" : ""; ?>>
+                            <?php echo $perso->getNom() ?>
                         </option>
                     <?php } ?>
                 </select>

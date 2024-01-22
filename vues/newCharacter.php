@@ -26,12 +26,12 @@
                     <input type="text" name="nom" id="nom" required>
                 </div>
                 <div class="form-group">
-                    <label for="attaque">Attaque</label>
-                    <input type="number" name="attaque" id="attaque" required>
+                    <label for="atk">Attaque</label>
+                    <input type="number" name="atk" id="atk" required>
                 </div>
                 <div class="form-group">
-                    <label for="vie">Vie</label>
-                    <input type="number" name="vie" id="vie" required>
+                    <label for="pv">Vie</label>
+                    <input type="number" name="pv" id="pv" required>
                 </div>
             </div>
             <input type="submit" value="Créer" class="bouton plus">

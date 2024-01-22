@@ -1,7 +1,5 @@
 <?php
 include("./scripts/database.php");
-include("./scripts/Personnage.php");
-include("./scripts/script.php");
 session_start();
 
 
@@ -14,16 +12,19 @@ $page = end($segments);
 switch ($page) {
     case "accueil":
     default:
-        $listePersos = getAllCharacters()->fetchAll(PDO::FETCH_ASSOC);
-        $rand1 = $listePersos[rand(0, count($listePersos) - 1)]["id"];
-        $rand2 = $listePersos[rand(0, count($listePersos) - 1)]["id"];
+        $listePersos = $manager->getAllCharacters();
+        $rand1 = $listePersos[rand(0, count($listePersos) - 1)]->getId();
+        $rand2 = $listePersos[rand(0, count($listePersos) - 1)]->getId();
         include("./vues/startScreen.php");
         break;
     case "fight":
         var_dump($_POST);
+        $_SESSION["joueur1"] = $manager->getCharacterById($_POST["player1"]);
+        $_SESSION["joueur2"] = $manager->getCharacterById($_POST["player2"]);
+        var_dump($_SESSION);
         break;
     case "allCharacters" :
-        $listePersos = getAllCharacters()->fetchAll(PDO::FETCH_ASSOC);
+        $listePersos = $manager->getAllCharacters();
         include("./vues/allCharacters.php");
         break;
     case "newCharacter" :

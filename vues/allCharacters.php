@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des personnages | FightTale</title>
     <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/logos.css">
 </head>
 
 <body>

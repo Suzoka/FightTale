@@ -27,6 +27,16 @@ class Personnage
         return $this->atk;
     }
 
+    public function getPvMax()
+    {
+        return $this->pvMax;
+    }
+
+    public function getPourcentagePv()
+    {
+        return ($this->pv / $this->pvMax) * 100;
+    }
+
     public function setPv($newPv)
     {
         if (!isset($this->pvMax)) {

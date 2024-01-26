@@ -18,10 +18,9 @@ switch ($page) {
         include("./vues/startScreen.php");
         break;
     case "fight":
-        var_dump($_POST);
         $_SESSION["joueur1"] = $manager->getCharacterById($_POST["player1"]);
         $_SESSION["joueur2"] = $manager->getCharacterById($_POST["player2"]);
-        var_dump($_SESSION);
+        include("./vues/fight.php");
         break;
     case "allCharacters" :
         $listePersos = $manager->getAllCharacters();

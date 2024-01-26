@@ -1,30 +1,30 @@
 *,
 *::before,
-*::after{
-box-sizing: border-box;
+*::after {
+    box-sizing: border-box;
 }
 
 @font-face {
     font-family: 'Determination';
-    src:url('../font/Determination.woff2') format('woff2'),
+    src: url('../font/Determination.woff2') format('woff2'),
         url('../font/Determination.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
 
-body{  
-margin: 0;
-background-color: black;
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
-max-width: 1440px;
-margin-right: auto;
-margin-left: auto;
-font-family: 'Determination', sans-serif;
-color: white;
+body {
+    margin: 0;
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Determination', sans-serif;
+    color: white;
 }
 
 .sr-only {
@@ -50,7 +50,8 @@ color: white;
     align-items: center;
     gap: 1.25rem;
     padding: 0.5rem 0.875rem;
-    background: transparent;;
+    background: transparent;
+    ;
 }
 
 .bouton:hover {
@@ -237,20 +238,22 @@ table thead th:before {
     width: 100%;
     border-top: solid white 8px;
     border-bottom: solid white 8px;
-} 
+}
+
 table thead th:first-of-type:before {
-    border-left: solid white 8px ;
+    border-left: solid white 8px;
 }
 
 table thead th:last-of-type:before {
-    border-right: solid white 8px ;
+    border-right: solid white 8px;
 }
 
 table thead th:first-child {
     text-align: center;
 }
 
-table tbody td, table tbody th {
+table tbody td,
+table tbody th {
     font-size: 2.5rem;
     padding: 1.5rem 0.75rem;
     text-align: left;
@@ -283,4 +286,80 @@ input.bouton.plus:hover {
     background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczNCcgaGVpZ2h0PSczMycgdmlld0JveD0nMCAwIDM0IDMzJyBmaWxsPSdub25lJz48cGF0aCBkPSdNMyAxNi41SDMxTTE3IDIuNVYzMC41JyBzdHJva2U9JyNGRkY2MDAnIHN0cm9rZS13aWR0aD0nNScgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJy8+PC9zdmc+") no-repeat left 1.25rem center;
     border-color: #FFF600;
     color: #FFF600;
+}
+
+.fight {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border: solid white 1px;
+    border-radius: 3px;
+    width: 90%;
+    height: 95vh;
+}
+
+.visualScene {
+    background-image: url(../img/fondFight.png);
+    background-size: 100% 100%;
+    width: 95%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 1.5rem;
+}
+
+.historique, .objets {
+    width: 90%;
+    height: 33.5%;
+    border-radius: 1px;
+    border: 8px solid #FFF;
+}
+
+.historique {
+    overflow-y: scroll;
+}
+
+.objets {
+    display: none;
+}
+
+.joueur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.3rem;
+}
+
+.joueur img {
+    height: 15rem;
+}
+
+.vie {
+    display: block;
+    position: relative;
+    width: 4rem;
+    height: 1rem;
+    background-color: #FD0000;
+}
+
+.vie::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: var(--pct);
+    background-color: #FFF800;
+}
+
+.infoPerso {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    gap: 0.5rem;
 }

@@ -18,22 +18,27 @@ switch ($page) {
         include("./vues/startScreen.php");
         break;
     case "fight":
-        if (!isset($_SESSION["joueur1"]) || !isset($_SESSION["joueur2"])) {
-            if (isset($_POST["player1"]) && isset($_POST["player2"])) {
-                $_SESSION["joueur1"] = $manager->getCharacterById($_POST["player1"]);
-                $_SESSION["joueur2"] = $manager->getCharacterById($_POST["player2"]);
+        if (isset($_POST["player1"]) && isset($_POST["player2"])) {
+            $manager->resetGame();
+            $_SESSION["joueur1"] = $manager->getCharacterById($_POST["player1"]);
+            $_SESSION["joueur2"] = $manager->getCharacterById($_POST["player2"]);
+            $_SESSION["historique"] = [];
+            $turn = rand(1, 2);
+            include("./vues/fight.php");
+        } else {
+            if (isset($_SESSION["joueur1"]) && isset($_SESSION["joueur2"])) {
+                include("./vues/fight.php");
             } else {
                 header("Location: ./accueil");
                 exit();
             }
         }
-        include("./vues/fight.php");
         break;
-    case "allCharacters" :
+    case "allCharacters":
         $listePersos = $manager->getAllCharacters();
         include("./vues/allCharacters.php");
         break;
-    case "newCharacter" :
+    case "newCharacter":
         include("./vues/newCharacter.php");
         break;
 }

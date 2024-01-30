@@ -13,22 +13,22 @@
 <body>
     <div class="fight">
         <div class="visualScene">
-            <div class="joueur">
-                <img src="../img/sprites/<?php echo $_SESSION["joueur1"]->getId() ?>.png" alt="">
-                <p class="infoPerso">HP <span class="vie" style="--pct: <?php echo $_SESSION["joueur1"]->getPourcentagePv() ?>%;"></span> <?php echo $_SESSION["joueur1"]->getPv() ?>&nbsp;/&nbsp;<?php echo $_SESSION["joueur1"]->getPvMax()?></p>
-            </div>
+            <?php
+            if (isset($turn)) {
+                if ($turn == 1) {
+                    include("./vues/components/player1Turn.php");
+                } else {
+                    include("./vues/components/player2Turn.php");
+                }
+            } else {
+                if (end($_SESSION["historique"])->joueur == 1) {
+                    include("./vues/components/player2Turn.php");
+                } else {
+                    include("./vues/components/player1Turn.php");
 
-            <div class="boutons">
-                <a href="" class="bouton atk">Attaque</a>
-                <a href="" class="bouton item">Items</a>
-                <a href="" class="bouton rage">Colère</a>
-                <a href="" class="bouton shield">Resiste</a>
-            </div>
-
-            <div class="joueur">
-            <img src="../img/sprites/<?php echo $_SESSION["joueur2"]->getId() ?>.png" alt="">
-            <p class="infoPerso">HP <span class="vie" style="--pct: <?php echo $_SESSION["joueur2"]->getPourcentagePv() ?>%;"></span> <?php echo $_SESSION["joueur2"]->getPv() ?>&nbsp;/&nbsp;<?php echo $_SESSION["joueur2"]->getPvMax()?></p>
-            </div>
+                }
+            }
+            ?>
         </div>
         <div class="historique">
 

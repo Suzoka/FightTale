@@ -7,6 +7,10 @@ class Personnage
     private $atk;
     private $pvMax;
 
+    private $colere = 0;
+
+    private $resiste = 0;
+
     public function getId()
     {
         return $this->id;

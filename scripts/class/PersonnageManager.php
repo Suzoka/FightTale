@@ -32,6 +32,11 @@ class PersonnageManager
         $perso = new Personnage($data);
         return $perso;
     }
+
+    public function resetGame() {
+        $_SESSION = array();
+        session_destroy();
+    }
 }
 
 ?>

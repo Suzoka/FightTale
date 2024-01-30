@@ -2,7 +2,6 @@
 include("./scripts/database.php");
 session_start();
 
-
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $path = trim($path, '/');
 $segments = explode('/', $path);
@@ -22,17 +21,31 @@ switch ($page) {
         if (isset($_GET["j1"]) || isset($_GET["j2"])) {
             if (isset($_GET["j1"])) {
                 if (count($_SESSION["historique"]) == 0 || end($_SESSION["historique"])->getJoueur() != 1) {
+                    $_SESSION["joueur1"]->updateStatus();
                     switch ($_GET["j1"]) {
                         case "atk":
                             array_push($_SESSION["historique"], new Historique(1, $_SESSION["joueur1"]->attaque($_SESSION["joueur2"])));
+                            break;
+                        case "colere":
+                            array_push($_SESSION["historique"], new Historique(1, $_SESSION["joueur1"]->rageMod()));
+                            break;
+                        case "resiste":
+                            array_push($_SESSION["historique"], new Historique(1, $_SESSION["joueur1"]->resisteMod()));
                             break;
                     }
                 }
             } else if (isset($_GET["j2"])) {
                 if (count($_SESSION["historique"]) == 0 || end($_SESSION["historique"])->getJoueur() != 2) {
+                    $_SESSION["joueur2"]->updateStatus();
                     switch ($_GET["j2"]) {
                         case "atk":
                             array_push($_SESSION["historique"], new Historique(2, $_SESSION["joueur2"]->attaque($_SESSION["joueur1"])));
+                            break;
+                        case "colere":
+                            array_push($_SESSION["historique"], new Historique(2, $_SESSION["joueur2"]->rageMod()));
+                            break;
+                        case "resiste":
+                            array_push($_SESSION["historique"], new Historique(2, $_SESSION["joueur2"]->resisteMod()));
                             break;
                     }
                 }

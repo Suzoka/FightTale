@@ -112,8 +112,39 @@ class Personnage
 
     public function attaque(Personnage $cible)
     {
-        $cible->setPv($cible->pv -= $this->atk);
-        return $this->nom . " attaque " . $cible->nom . " et lui inflige " . $this->atk . " points de dégâts !";
+        $degats = $this->atk;
+        if ($this->colere != 0) {
+            $degats *= 2;
+        }
+        if ($cible->resiste != 0) {
+            $degats *= 0.5;
+        }
+        $cible->setPv($cible->pv - $degats);
+        return $this->nom . " attaque " . $cible->nom . " et lui inflige " . $degats . " points de dégâts !";
+    }
+
+    public function rageMod()
+    {
+        //Rester en colère pendant 2 tours
+        $this->colere = 3;
+        return $this->nom. " commence à s'énerver";
+    }
+
+    public function resisteMod()
+    {
+        //Rester protégé pendant 2 tours
+        $this->resiste = 3;
+        return $this->nom. " se prépare à encaisser les coups";
+    }
+
+    public function updateStatus()
+    {
+        if ($this->colere != 0) {
+            $this->colere--;
+        }
+        if ($this->resiste != 0) {
+            $this->resiste--;
+        }
     }
 }
 ?>

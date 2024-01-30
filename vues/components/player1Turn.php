@@ -9,10 +9,10 @@
 </div>
 
 <div class="boutons">
-    <a href="./fight?j1atk=true" class="bouton atk">Attaque</a>
+    <a href="./fight?j1=atk" class="bouton atk">Attaque</a>
     <button class="bouton item">Items</button>
-    <a href="./fight?j1colere=true" class="bouton rage">Colère</a>
-    <a href="./fight?j1resiste=true" class="bouton shield">Resiste</a>
+    <a href="./fight?j1=colere" class="bouton rage">Colère</a>
+    <a href="./fight?j1=resiste" class="bouton shield">Resiste</a>
 </div>
 
 <div class="joueur">

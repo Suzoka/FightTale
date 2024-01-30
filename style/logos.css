@@ -63,6 +63,7 @@ input.bouton.plus {
 
 button.bouton.item {
     font-family: 'Determination', sans-serif;
+    cursor: pointer;
 }
 
 .bouton.item::before {

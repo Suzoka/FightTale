@@ -112,7 +112,8 @@ class Personnage
 
     public function attaque(Personnage $cible)
     {
-        $this->setPv($cible->pv -= $this->atk);
+        $cible->setPv($cible->pv -= $this->atk);
+        return $this->nom . " attaque " . $cible->nom . " et lui inflige " . $this->atk . " points de dégâts !";
     }
 }
 ?>

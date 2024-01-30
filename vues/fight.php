@@ -21,7 +21,7 @@
                     include("./vues/components/player2Turn.php");
                 }
             } else {
-                if (end($_SESSION["historique"])->joueur == 1) {
+                if (end($_SESSION["historique"])->getJoueur() == 1) {
                     include("./vues/components/player2Turn.php");
                 } else {
                     include("./vues/components/player1Turn.php");
@@ -31,12 +31,18 @@
             ?>
         </div>
         <div class="historique">
-
+            <?php 
+            foreach ($_SESSION["historique"] as $key => $value) {
+                echo ("<p>".$value->getDetail()."</p>");	
+            }
+            ?>
         </div>
         <div class="objets">
 
         </div>
     </div>
+
+    <script src="../scripts/fight.js"></script>
 </body>
 
 </html>

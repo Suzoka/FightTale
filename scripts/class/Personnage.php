@@ -1,7 +1,7 @@
 <?php
 class Personnage
 {
-    private $id;
+    private $id = null;
     private $nom;
     private $pv;
     private $atk;
@@ -133,7 +133,7 @@ class Personnage
     public function resisteMod()
     {
         //Rester protégé pendant 2 tours
-        $this->resiste = 3;
+        $this->resiste = 2;
         return $this->nom. " se prépare à encaisser les coups";
     }
 

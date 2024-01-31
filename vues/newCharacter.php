@@ -16,7 +16,7 @@
         <h1>Ajouter un nouveau personnage</h1>
     </header>
     <main>
-        <form action="./newCharacterAction" method="POST">
+        <form action="./newCharacterAction" method="POST" enctype="multipart/form-data">
             <div class="picture-form">
                 <label for="picture">Apparence</label>
                 <input type="file" name="sprite" id="picture" accept=".jpg, .jpeg, .png" value="Image">

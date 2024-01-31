@@ -32,6 +32,8 @@ switch ($page) {
                         case "resiste":
                             array_push($_SESSION["historique"], new Historique(1, $_SESSION["joueur1"]->resisteMod()));
                             break;
+                        case "item":
+                            break;
                     }
                 }
             } else if (isset($_GET["j2"])) {
@@ -72,6 +74,12 @@ switch ($page) {
         break;
     case "newCharacter":
         include("./vues/newCharacter.php");
+        break;
+    case "newCharacterAction":
+        if (isset($_POST["nom"]) && isset($_POST["atk"]) && isset($_POST["pv"])) {
+            $manager->addPersonnage(new Personnage(["nom" => $_POST["nom"], "atk" => $_POST["atk"], "pv" => $_POST["pv"]]));
+            
+        }
         break;
 }
 ?>

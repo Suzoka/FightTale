@@ -37,6 +37,15 @@ class PersonnageManager
         $_SESSION = array();
         session_destroy();
     }
+
+    public function addPersonnage (Personnage $perso) :bool {
+        global $db;
+        $stmt = $db->prepare("INSERT INTO `personnages` (`nom`, `pv`, `atk`) values (:nom, :pv, :atk)");
+        $stmt->bindValue(':nom', $perso->getNom(), PDO::PARAM_STR);
+        $stmt->bindValue(':pv', $perso->getPv(), PDO::PARAM_INT);
+        $stmt->bindValue(':atk', $perso->getAtk(), PDO::PARAM_INT);
+        return $stmt->execute();
+    }
 }
 
 ?>

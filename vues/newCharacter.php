@@ -16,10 +16,11 @@
         <h1>Ajouter un nouveau personnage</h1>
     </header>
     <main>
-        <form action="./newCharacterAction" method="POST" enctype="multipart/form-data">
+        <form action="./newCharacterAction" method="POST" enctype="multipart/form-data" class="newCharacter">
             <div class="picture-form">
                 <label for="picture">Apparence</label>
-                <input type="file" name="sprite" id="picture" accept=".jpg, .jpeg, .png" value="Image">
+                <img src="" alt="" class="dynamique">
+                <input type="file" name="sprite" id="picture" accept=".jpg, .jpeg, .png" value="Image" required>
             </div>
             <div class="line">
                 <div class="form-group">
@@ -39,6 +40,7 @@
         </form>
     </main>
 
+    <script src="../scripts/newCharacter.js"></script>
 </body>
 
 </html>

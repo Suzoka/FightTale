@@ -76,9 +76,13 @@ switch ($page) {
         include("./vues/newCharacter.php");
         break;
     case "newCharacterAction":
-        if (isset($_POST["nom"]) && isset($_POST["atk"]) && isset($_POST["pv"])) {
+        if (isset($_POST["nom"]) && isset($_POST["atk"]) && isset($_POST["pv"]) && ($_FILES["sprite"]["name"] != '') && !empty($_FILES)) {
             $manager->addPersonnage(new Personnage(["nom" => $_POST["nom"], "atk" => $_POST["atk"], "pv" => $_POST["pv"]]));
-            
+            move_uploaded_file($_FILES["sprite"]["tmp_name"], "./img/sprites/{$manager->getLastCharacterId()}.png");
+            header("Location: ./allCharacters");
+        }
+        else {
+            header("Location: ./newCharacter?error=true");
         }
         break;
 }

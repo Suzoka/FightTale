@@ -46,6 +46,13 @@ class PersonnageManager
         $stmt->bindValue(':atk', $perso->getAtk(), PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    public function getLastCharacterId() {
+        global $db;
+        $stmt = $db->prepare("select id from `personnages` order by id desc limit 1");
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
 }
 
 ?>

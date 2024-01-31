@@ -171,12 +171,13 @@ table {
 }
 
 table thead th {
-    font-size: 4rem;
+    font-size: 2.5rem;
     text-align: left;
     padding: 0.5rem 0.75rem;
     background-color: black;
     position: sticky;
     top: 0px;
+    height: 5rem;
 }
 
 table thead th::after {
@@ -232,6 +233,15 @@ table tbody {
     width: 100%;
 }
 
+tbody tr a {
+    color: #00000000;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: block;
+}
+
 input.bouton.plus:hover {
     border-color: #FFF600;
     color: #FFF600;
@@ -260,7 +270,8 @@ input.bouton.plus:hover {
     gap: 2.5rem;
 }
 
-.historique, .objets {
+.historique,
+.objets {
     width: 90%;
     height: 33.5%;
     border-radius: 1px;
@@ -358,4 +369,74 @@ h1.turn {
 
 h1.turn span {
     font-size: 3.375rem;
+}
+
+form.newCharacter {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+form.newCharacter img {
+    height: 13rem;
+}
+
+div.picture-form {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+div.picture-form label:not(label.rempli)::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4.5rem;
+    height: 67.5%;
+    width: 200px;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='25' viewBox='0 0 31 25' fill='none'><path d='M28.875 0H2.625C1.59469 0 0.75 0.834074 0.75 1.85144V23.1486C0.75 24.1659 1.59375 25 2.625 25H28.875C29.9053 25 30.75 24.1659 30.75 23.1486V1.85144C30.75 0.834074 29.9053 0 28.875 0ZM28.875 23.1486H2.625V17.6942L10.1503 10.493L17.9081 18.1441C18.2278 18.5274 18.7969 18.4783 19.2009 18.1765L22.6247 15.1161L28.8 21.3758C28.8234 21.3989 28.8497 21.4165 28.875 21.436V23.1486ZM28.875 18.8005L23.3663 13.2341C23.0316 12.9082 22.5084 12.8758 22.1372 13.1545L18.6047 16.1927L10.8422 8.61105C10.6763 8.41295 10.4372 8.2926 10.1775 8.27501C9.91969 8.26576 9.66469 8.34907 9.47531 8.52496L2.62313 15.1087V1.85051H28.8731V18.7995L28.875 18.8005ZM22.3125 9.26368C23.3456 9.26368 24.1828 8.43609 24.1828 7.41687C24.1828 6.39765 23.3466 5.57006 22.3125 5.57006C21.2784 5.57006 20.4422 6.39765 20.4422 7.41687C20.4422 8.43609 21.2784 9.26368 22.3125 9.26368Z' fill='white'/></svg>");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+form.newCharacter label {
+    font-size: 4rem;
+}
+
+div.line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 5rem;
+}
+
+div.form-group {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+div.form-group input {
+    border-radius: 1px;
+    border: 3px solid #FFF;
+    background: #000;
+    width: 12rem;
+    height: 3rem;
+    color: #FFF;
+    font-size: 2rem;
+    
 }

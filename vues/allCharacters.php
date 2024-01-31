@@ -23,6 +23,8 @@
                     <th scope="col">Nom</th>
                     <th scope="col">Attaque</th>
                     <th scope="col">PV</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +34,7 @@
                         <th scope="row"><?php echo $perso->getNom() ?></th>
                         <td><?php echo $perso->getAtk() ?></td>
                         <td><?php echo $perso->getPv() ?></td>
+                        <td><a href="./editCharacter?id=<?php echo $perso->getId() ?>" class="edit">Edit</a></td>
                     </tr>
                 <?php } ?>
             </tbody>

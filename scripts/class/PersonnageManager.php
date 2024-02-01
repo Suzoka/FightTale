@@ -15,7 +15,7 @@ class PersonnageManager
 
     public function getAllCharacters() {
         global $db;
-        $stmt = $db->prepare("SELECT * FROM `personnages`");
+        $stmt = $db->prepare("SELECT * FROM `personnages` order by `nom` asc");
         $stmt->execute();
         while ($data = $stmt->fetch(PDO::FETCH_ASSOC)){
             $listePersos[] = new Personnage($data);

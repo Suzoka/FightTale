@@ -19,12 +19,12 @@
         <table>
             <thead>
                 <tr>
-                    <th scope="col">Apparence</th>
+                    <th scope="col" class="center">Apparence</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Attaque</th>
                     <th scope="col">PV</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col" class="center">Edit</th>
+                    <th scope="col" class="center">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +35,7 @@
                         <td><?php echo $perso->getAtk() ?></td>
                         <td><?php echo $perso->getPv() ?></td>
                         <td><a href="./editCharacter?id=<?php echo $perso->getId() ?>" class="edit">Edit</a></td>
+                        <td><a href="./deleteCharacter?id=<?php echo $perso->getId() ?>" class="delete">Delete</a></td>
                     </tr>
                 <?php } ?>
             </tbody>

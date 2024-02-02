@@ -80,9 +80,20 @@ switch ($page) {
             $manager->addPersonnage(new Personnage(["nom" => $_POST["nom"], "atk" => $_POST["atk"], "pv" => $_POST["pv"]]));
             move_uploaded_file($_FILES["sprite"]["tmp_name"], "./img/sprites/{$manager->getLastCharacterId()}.png");
             header("Location: ./allCharacters");
-        }
-        else {
+        } else {
             header("Location: ./newCharacter?error=true");
+        }
+        break;
+    case "deleteCharacter":
+        if (isset($_GET["id"])) {
+            if ($manager->deletePerso($_GET["id"])){
+                header("Location: ./allCharacters");
+            }
+            else {
+                header("Location: ./allCharacters?error=true");
+            }
+        } else {
+            header("Location: ./allCharacters");
         }
         break;
 }

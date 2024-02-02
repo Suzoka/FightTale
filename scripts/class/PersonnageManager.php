@@ -13,17 +13,19 @@ class PersonnageManager
         $this->db = $db;
     }
 
-    public function getAllCharacters() {
+    public function getAllCharacters()
+    {
         global $db;
         $stmt = $db->prepare("SELECT * FROM `personnages` order by `nom` asc");
         $stmt->execute();
-        while ($data = $stmt->fetch(PDO::FETCH_ASSOC)){
+        while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $listePersos[] = new Personnage($data);
         }
         return $listePersos;
     }
 
-    public function getCharacterById($id){
+    public function getCharacterById($id)
+    {
         global $db;
         $stmt = $db->prepare("SELECT * FROM `personnages` WHERE `id` = :id");
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -33,12 +35,14 @@ class PersonnageManager
         return $perso;
     }
 
-    public function resetGame() {
+    public function resetGame()
+    {
         $_SESSION = array();
         session_destroy();
     }
 
-    public function addPersonnage (Personnage $perso) :bool {
+    public function addPersonnage(Personnage $perso): bool
+    {
         global $db;
         $stmt = $db->prepare("INSERT INTO `personnages` (`nom`, `pv`, `atk`) values (:nom, :pv, :atk)");
         $stmt->bindValue(':nom', $perso->getNom(), PDO::PARAM_STR);
@@ -47,11 +51,20 @@ class PersonnageManager
         return $stmt->execute();
     }
 
-    public function getLastCharacterId() {
+    public function getLastCharacterId()
+    {
         global $db;
         $stmt = $db->prepare("select id from `personnages` order by id desc limit 1");
         $stmt->execute();
         return $stmt->fetchColumn();
+    }
+
+    public function deletePerso($id)
+    {
+        global $db;
+        $stmt = $db->prepare("delete from `personnages` where id=:id");
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
     }
 }
 

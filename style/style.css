@@ -244,11 +244,6 @@ tbody tr a {
     display: block;
 }
 
-input.bouton.plus:hover {
-    border-color: #FFF600;
-    color: #FFF600;
-}
-
 .fight {
     display: flex;
     position: relative;
@@ -440,5 +435,6 @@ div.form-group input {
     height: 3rem;
     color: #FFF;
     font-size: 2rem;
-    
+    font-family: 'Determination', sans-serif;
+    padding-left: 10px;
 }

@@ -96,5 +96,13 @@ switch ($page) {
             header("Location: ./allCharacters");
         }
         break;
+    case "editCharacter":
+        if (isset($_GET["id"])){
+            $perso = $manager->getCharacterById($_GET["id"]);
+            include("./vues/editCharacter.php");
+        }
+        else {
+            header("Location: ./allCharacters");
+        }
 }
 ?>

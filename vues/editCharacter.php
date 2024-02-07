@@ -36,7 +36,7 @@
                     <input type="number" name="pv" id="pv" required value="<?php echo $perso->getPv() ?>">
                 </div>
             </div>
-            <input type="submit" value="Modifier" class="bouton save">
+            <input type="submit" value="Sauvegarder" class="bouton save">
         </form>
     </main>
 

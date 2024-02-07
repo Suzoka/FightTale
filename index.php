@@ -13,8 +13,9 @@ switch ($page) {
     default:
         $manager->resetGame();
         $listePersos = $manager->getAllCharacters();
-        $rand1 = $listePersos[rand(0, count($listePersos) - 1)]->getId();
-        $rand2 = $listePersos[rand(0, count($listePersos) - 1)]->getId();
+        $rand_keys = array_rand($listePersos, 2);
+        $rand1 = $listePersos[$rand_keys[0]]->getId();
+        $rand2 = $listePersos[$rand_keys[1]]->getId();
         include("./vues/startScreen.php");
         break;
     case "fight":

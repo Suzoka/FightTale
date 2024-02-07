@@ -66,6 +66,16 @@ class PersonnageManager
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    public function updatePerso(Personnage $perso) {
+        global $db;
+        $stmt = $db->prepare("update personnages set nom=:nom, atk=:atk, pv=:pv where id=:id");
+        $stmt->bindValue(':nom', $perso->getNom(), PDO::PARAM_STR);
+        $stmt->bindValue(':atk', $perso->getAtk(), PDO::PARAM_INT);
+        $stmt->bindValue(':pv', $perso->getPv(), PDO::PARAM_INT);
+        $stmt->bindValue(':id', $perso->getId(), PDO::PARAM_INT);
+        return $stmt->execute();
+    }
 }
 
 ?>

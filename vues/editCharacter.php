@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $perso->getNom() ?> | FightTale</title>
+    <title>
+        <?php echo $perso->getNom() ?> | FightTale
+    </title>
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/logos.css">
 </head>
@@ -13,14 +15,17 @@
 <body>
     <header>
         <a href="./allCharacters" class="bouton back">Retour</a>
-        <h1>Modifier <?php echo $perso->getNom() ?></h1>
+        <h1>Modifier
+            <?php echo $perso->getNom() ?>
+        </h1>
     </header>
     <main>
         <form action="./editCharacterAction" method="POST" enctype="multipart/form-data" class="newCharacter">
+            <input id="id" name="id" type="hidden" value="<?php echo $perso->getId() ?>" />
             <div class="picture-form">
                 <label for="picture" class="rempli">Apparence</label>
                 <img src="../img/sprites/<?php echo $perso->getId() ?>.png" alt="" class="dynamique">
-                <input type="file" name="sprite" id="picture" accept=".jpg, .jpeg, .png" value="Image" required>
+                <input type="file" name="sprite" id="picture" accept=".jpg, .jpeg, .png" value="Image">
             </div>
             <div class="line">
                 <div class="form-group">

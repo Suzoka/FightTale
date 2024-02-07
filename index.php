@@ -87,10 +87,10 @@ switch ($page) {
         break;
     case "deleteCharacter":
         if (isset($_GET["id"])) {
-            if ($manager->deletePerso($_GET["id"])){
+            unlink("./img/sprites/".$_GET["id"].".png");
+            if ($manager->deletePerso($_GET["id"])) {
                 header("Location: ./allCharacters");
-            }
-            else {
+            } else {
                 header("Location: ./allCharacters?error=true");
             }
         } else {
@@ -98,12 +98,26 @@ switch ($page) {
         }
         break;
     case "editCharacter":
-        if (isset($_GET["id"])){
+        if (isset($_GET["id"])) {
             $perso = $manager->getCharacterById($_GET["id"]);
             include("./vues/editCharacter.php");
-        }
-        else {
+        } else {
             header("Location: ./allCharacters");
         }
+        break;
+    case "editCharacterAction":
+        if ($_FILES["sprite"]["name"] != '' && !empty($_FILES["sprite"])) {
+            if (file_exists("../img/sprites/".$_POST["id"].".png")) {
+                unlink("../img/sprites/".$_POST["id"].".png");
+            }
+            move_uploaded_file($_FILES["sprite"]["tmp_name"], "./img/sprites/".$_POST["id"].".png");
+        }
+        if ($manager->updatePerso(new Personnage(["id"=>$_POST["id"], "nom" => $_POST["nom"], "atk" => $_POST["atk"], "pv" => $_POST["pv"]]))) {
+            header("Location: ./allCharacters");
+        }
+        else {
+            header("Location: ./allCharacters?error=true");
+        }
+        break;
 }
 ?>

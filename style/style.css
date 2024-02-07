@@ -277,6 +277,20 @@ tbody tr a {
 
 .historique {
     overflow-y: scroll;
+    font-size: 2.5rem;
+    padding-left: 1rem;
+}
+
+.historique ul {
+    list-style-type: '*';
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.historique ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 15px;
 }
 
 .objets {

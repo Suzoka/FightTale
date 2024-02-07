@@ -31,11 +31,13 @@
             ?>
         </div>
         <div class="historique">
-            <?php 
-            foreach ($_SESSION["historique"] as $key => $value) {
-                echo ("<p>".$value->getDetail()."</p>");	
-            }
-            ?>
+            <ul>
+                <?php
+                foreach ($_SESSION["historique"] as $key => $value) {
+                    echo ("<li>" . $value->getDetail() . "</li>");
+                }
+                ?>
+            </ul>
         </div>
         <div class="objets">
 

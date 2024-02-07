@@ -53,6 +53,10 @@ switch ($page) {
                     }
                 }
             }
+            if ($_SESSION["joueur1"]->getPv() == 0 || $_SESSION["joueur2"]->getPv() == 0) {
+                header("Location: ./endScreen");
+                exit();
+            }
         }
         if (isset($_POST["player1"]) && isset($_POST["player2"])) {
             $_SESSION["joueur1"] = $manager->getCharacterById($_POST["player1"]);
@@ -67,6 +71,16 @@ switch ($page) {
                 header("Location: ./accueil");
                 exit();
             }
+        }
+        break;
+    case "endScreen":
+        if (isset($_SESSION["joueur1"]) && isset($_SESSION["joueur2"]) && ($_SESSION["joueur1"]->getPv() == 0 || $_SESSION["joueur2"]->getPv() == 0)) {
+            $winner = $_SESSION["joueur1"]->getPv() == 0 ? $_SESSION["joueur2"] : $_SESSION["joueur1"];
+            include("./vues/endScreen.php");
+        }
+        else {
+            header("Location: ./fight");
+            exit();
         }
         break;
     case "allCharacters":
@@ -87,7 +101,7 @@ switch ($page) {
         break;
     case "deleteCharacter":
         if (isset($_GET["id"])) {
-            unlink("./img/sprites/".$_GET["id"].".png");
+            unlink("./img/sprites/" . $_GET["id"] . ".png");
             if ($manager->deletePerso($_GET["id"])) {
                 header("Location: ./allCharacters");
             } else {
@@ -107,15 +121,14 @@ switch ($page) {
         break;
     case "editCharacterAction":
         if ($_FILES["sprite"]["name"] != '' && !empty($_FILES["sprite"])) {
-            if (file_exists("../img/sprites/".$_POST["id"].".png")) {
-                unlink("../img/sprites/".$_POST["id"].".png");
+            if (file_exists("../img/sprites/" . $_POST["id"] . ".png")) {
+                unlink("../img/sprites/" . $_POST["id"] . ".png");
             }
-            move_uploaded_file($_FILES["sprite"]["tmp_name"], "./img/sprites/".$_POST["id"].".png");
+            move_uploaded_file($_FILES["sprite"]["tmp_name"], "./img/sprites/" . $_POST["id"] . ".png");
         }
-        if ($manager->updatePerso(new Personnage(["id"=>$_POST["id"], "nom" => $_POST["nom"], "atk" => $_POST["atk"], "pv" => $_POST["pv"]]))) {
+        if ($manager->updatePerso(new Personnage(["id" => $_POST["id"], "nom" => $_POST["nom"], "atk" => $_POST["atk"], "pv" => $_POST["pv"]]))) {
             header("Location: ./allCharacters");
-        }
-        else {
+        } else {
             header("Location: ./allCharacters?error=true");
         }
         break;

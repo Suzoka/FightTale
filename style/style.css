@@ -460,3 +460,31 @@ table tbody tr:first-of-type th, table tbody tr:first-of-type td {
 table tbody tr:last-of-type th, table tbody tr:last-of-type td {
     padding-bottom: 2rem;
 }
+
+.endScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.endScreen h2 {
+    text-align: center;
+    margin: 0;
+    font-size: 4rem;
+    line-height: 4.25rem;
+}
+
+.endScreen h2 span {
+    font-size: 8rem;
+}
+
+.endScreen img {
+    height: 20rem;
+}
+
+.endScreen+p {
+    font-size: 6rem;
+    margin: 0;
+}

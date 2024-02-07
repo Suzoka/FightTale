@@ -11,6 +11,8 @@ class Personnage
 
     private $resiste = 0;
 
+    private $items = [];
+
     public function getId()
     {
         return $this->id;
@@ -84,6 +86,11 @@ class Personnage
                 $this->$method($value);
             }
         }
+    }
+
+    public function setItem($items)
+    {
+        $this->items = $items;
     }
 
     public function __construct(array $data)

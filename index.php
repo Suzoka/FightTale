@@ -60,7 +60,9 @@ switch ($page) {
         }
         if (isset($_POST["player1"]) && isset($_POST["player2"])) {
             $_SESSION["joueur1"] = $manager->getCharacterById($_POST["player1"]);
+            $_SESSION["joueur1"]->setItem($itemManager->getFiveRandomItem());
             $_SESSION["joueur2"] = $manager->getCharacterById($_POST["player2"]);
+            $_SESSION["joueur2"]->setItem($itemManager->getFiveRandomItem());
             $_SESSION["historique"] = [];
             $turn = rand(1, 2);
             include("./vues/fight.php");

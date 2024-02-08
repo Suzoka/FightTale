@@ -47,13 +47,30 @@
             <ul>
                 <?php
                 foreach ($_SESSION["joueur" . $user]->getItems() as $key => $value) {
-                    echo ("<li><a href=\"./fight?j".$user."=item&item=".$key."\">" . $value->getNom() . "</a></li>");
+                    echo ("<li><a href=\"./fight?j" . $user . "=item&item=" . $key . "\">" . $value->getNom() . "</a></li>");
                 }
                 ?>
             </ul>
         </div>
 
         <button class="rules">Règles</button>
+    </div>
+
+    <div class="regles">
+        <div>
+            <h2>Règles du jeu</h2>
+            <p>Votre but est de vaincre votre adversaire. <br>
+                Pour ce faire, plusieurs options s'offrent à vous :</p>
+            <ul>
+                <li>Attaquer : Inflige des dégâts à votre adversaire</li>
+                <li>Colère : Double vos dégâts pour les deux prochains tours</li>
+                <li>Résiste : Divise par deux les dégâts infligés par votre adversaire pour les deux prochains tours
+                </li>
+                <li>Objets : Utilisez un objet afin de vous soigner</li>
+            </ul>
+            <p>Bonne chance à vous !</p>
+            <button class="close">Fermer le popup</button>
+        </div>
     </div>
 
     <script src="../scripts/fight.js"></script>

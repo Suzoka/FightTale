@@ -532,3 +532,53 @@ table tbody tr:last-of-type th, table tbody tr:last-of-type td {
     background-color: #fff80033;
     cursor: pointer;
 }
+
+.regles {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000dd;
+}
+
+.regles div {
+    background-color: #000;
+    border-radius: 1px;
+    padding: 2.5rem;
+    border: solid white 5px;
+    position: relative;
+}
+
+.regles h2 {
+    font-size: 4rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.regles p {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.regles ul {
+    list-style-type: '* ';
+    font-size: 1.75rem;
+}
+
+.regles .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    color: #00000000;
+}

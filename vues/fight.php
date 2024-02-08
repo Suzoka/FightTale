@@ -52,6 +52,8 @@
                 ?>
             </ul>
         </div>
+
+        <button class="rules">Règles</button>
     </div>
 
     <script src="../scripts/fight.js"></script>

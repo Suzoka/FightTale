@@ -510,3 +510,25 @@ table tbody tr:last-of-type th, table tbody tr:last-of-type td {
     font-size: 6rem;
     margin: 0;
 }
+
+.rules {
+    color: #00000000;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-size: 3rem;
+    background-position: center;
+    background-color: #ffffff33;
+    border: none;
+    border-bottom-left-radius: 10px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 75px;
+    height: 75px;
+}
+
+.rules:hover {
+    background-color: #fff80033;
+    cursor: pointer;
+}

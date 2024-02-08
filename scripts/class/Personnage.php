@@ -11,6 +11,8 @@ class Personnage
 
     private $resiste = 0;
 
+    private $items = [];
+
     public function getId()
     {
         return $this->id;
@@ -39,6 +41,11 @@ class Personnage
     public function getPourcentagePv()
     {
         return ($this->pv / $this->pvMax) * 100;
+    }
+
+    public function getItems()
+    {
+        return $this->items;
     }
 
     public function setPv($newPv)
@@ -86,6 +93,11 @@ class Personnage
         }
     }
 
+    public function setItems($items)
+    {
+        $this->items = $items;
+    }
+
     public function __construct(array $data)
     {
         $this->hydratation($data);
@@ -127,14 +139,14 @@ class Personnage
     {
         //Rester en colère pendant 2 tours
         $this->colere = 3;
-        return $this->nom. " commence à s'énerver";
+        return $this->nom . " commence à s'énerver";
     }
 
     public function resisteMod()
     {
         //Rester protégé pendant 2 tours
         $this->resiste = 2;
-        return $this->nom. " se prépare à encaisser les coups";
+        return $this->nom . " se prépare à encaisser les coups";
     }
 
     public function updateStatus()
@@ -145,6 +157,15 @@ class Personnage
         if ($this->resiste != 0) {
             $this->resiste--;
         }
+    }
+
+    public function useItem($itemIndex)
+    {
+        $item = $this->items[$itemIndex];
+        $oldPv = $this->pv;
+        $this->regenerer($item->getPvRestoration());
+        array_splice($this->items, $itemIndex, 1);
+        return $this->nom . " utilise " . $item->getNom() . " et récupère " . ($this->pv - $oldPv) . " points de vie";
     }
 }
 ?>

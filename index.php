@@ -34,6 +34,7 @@ switch ($page) {
                             array_push($_SESSION["historique"], new Historique(1, $_SESSION["joueur1"]->resisteMod()));
                             break;
                         case "item":
+                            array_push($_SESSION["historique"], new Historique(1, $_SESSION["joueur1"]->useItem($_GET["item"])));
                             break;
                     }
                 }
@@ -50,6 +51,9 @@ switch ($page) {
                         case "resiste":
                             array_push($_SESSION["historique"], new Historique(2, $_SESSION["joueur2"]->resisteMod()));
                             break;
+                        case "item":
+                            array_push($_SESSION["historique"], new Historique(2, $_SESSION["joueur2"]->useItem($_GET["item"])));
+                            break;
                     }
                 }
             }
@@ -60,7 +64,9 @@ switch ($page) {
         }
         if (isset($_POST["player1"]) && isset($_POST["player2"])) {
             $_SESSION["joueur1"] = $manager->getCharacterById($_POST["player1"]);
+            $_SESSION["joueur1"]->setItems($itemManager->getFiveRandomItem());
             $_SESSION["joueur2"] = $manager->getCharacterById($_POST["player2"]);
+            $_SESSION["joueur2"]->setItems($itemManager->getFiveRandomItem());
             $_SESSION["historique"] = [];
             $turn = rand(1, 2);
             include("./vues/fight.php");
@@ -77,8 +83,7 @@ switch ($page) {
         if (isset($_SESSION["joueur1"]) && isset($_SESSION["joueur2"]) && ($_SESSION["joueur1"]->getPv() == 0 || $_SESSION["joueur2"]->getPv() == 0)) {
             $winner = $_SESSION["joueur1"]->getPv() == 0 ? $_SESSION["joueur2"] : $_SESSION["joueur1"];
             include("./vues/endScreen.php");
-        }
-        else {
+        } else {
             header("Location: ./fight");
             exit();
         }

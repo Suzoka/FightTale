@@ -273,28 +273,50 @@ tbody tr a {
     height: 33.5%;
     border-radius: 1px;
     border: 8px solid #FFF;
-}
-
-.historique {
-    overflow-y: scroll;
     font-size: 2.5rem;
     padding-left: 1rem;
 }
 
-.historique ul {
+.historique {
+    overflow-y: scroll;
+}
+
+.historique ul, .objets ul{
     list-style-type: '*';
     margin: 0;
     padding-top: 1rem;
     padding-bottom: 0.5rem;
 }
 
-.historique ul li {
+.historique ul li{
     margin-bottom: 0.5rem;
     padding-left: 15px;
 }
 
 .objets {
     display: none;
+}
+
+
+.objets ul {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    padding-top: 2.25rem;
+    padding-left: 5rem;
+}
+
+.objets a {
+    text-decoration: none;
+    color: white;
+    padding-left: 1rem;
+}
+
+.objets a:hover, .objets li:hover {
+    color: #FFF800;
 }
 
 .joueur {

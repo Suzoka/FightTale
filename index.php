@@ -34,6 +34,7 @@ switch ($page) {
                             array_push($_SESSION["historique"], new Historique(1, $_SESSION["joueur1"]->resisteMod()));
                             break;
                         case "item":
+                            array_push($_SESSION["historique"], new Historique(1, $_SESSION["joueur1"]->useItem($_GET["item"])));
                             break;
                     }
                 }
@@ -49,6 +50,9 @@ switch ($page) {
                             break;
                         case "resiste":
                             array_push($_SESSION["historique"], new Historique(2, $_SESSION["joueur2"]->resisteMod()));
+                            break;
+                        case "item":
+                            array_push($_SESSION["historique"], new Historique(2, $_SESSION["joueur2"]->useItem($_GET["item"])));
                             break;
                     }
                 }
@@ -79,8 +83,7 @@ switch ($page) {
         if (isset($_SESSION["joueur1"]) && isset($_SESSION["joueur2"]) && ($_SESSION["joueur1"]->getPv() == 0 || $_SESSION["joueur2"]->getPv() == 0)) {
             $winner = $_SESSION["joueur1"]->getPv() == 0 ? $_SESSION["joueur2"] : $_SESSION["joueur1"];
             include("./vues/endScreen.php");
-        }
-        else {
+        } else {
             header("Location: ./fight");
             exit();
         }

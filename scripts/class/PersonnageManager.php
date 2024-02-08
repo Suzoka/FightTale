@@ -5,7 +5,7 @@ class PersonnageManager
 
     public function __construct($db)
     {
-        $this->setDb = $db;
+        $this->setDb($db);
     }
 
     public function setDb(PDO $db)
@@ -15,8 +15,7 @@ class PersonnageManager
 
     public function getAllCharacters()
     {
-        global $db;
-        $stmt = $db->prepare("SELECT * FROM `personnages` order by `nom` asc");
+        $stmt = $this->db->prepare("SELECT * FROM `personnages` order by `nom` asc");
         $stmt->execute();
         while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $listePersos[] = new Personnage($data);
@@ -26,8 +25,7 @@ class PersonnageManager
 
     public function getCharacterById($id)
     {
-        global $db;
-        $stmt = $db->prepare("SELECT * FROM `personnages` WHERE `id` = :id");
+        $stmt = $this->db->prepare("SELECT * FROM `personnages` WHERE `id` = :id");
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -43,8 +41,7 @@ class PersonnageManager
 
     public function addPersonnage(Personnage $perso): bool
     {
-        global $db;
-        $stmt = $db->prepare("INSERT INTO `personnages` (`nom`, `pv`, `atk`) values (:nom, :pv, :atk)");
+        $stmt = $this->db->prepare("INSERT INTO `personnages` (`nom`, `pv`, `atk`) values (:nom, :pv, :atk)");
         $stmt->bindValue(':nom', $perso->getNom(), PDO::PARAM_STR);
         $stmt->bindValue(':pv', $perso->getPv(), PDO::PARAM_INT);
         $stmt->bindValue(':atk', $perso->getAtk(), PDO::PARAM_INT);
@@ -53,23 +50,20 @@ class PersonnageManager
 
     public function getLastCharacterId()
     {
-        global $db;
-        $stmt = $db->prepare("select id from `personnages` order by id desc limit 1");
+        $stmt = $this->db->prepare("select id from `personnages` order by id desc limit 1");
         $stmt->execute();
         return $stmt->fetchColumn();
     }
 
     public function deletePerso($id)
     {
-        global $db;
-        $stmt = $db->prepare("delete from `personnages` where id=:id");
+        $stmt = $this->db->prepare("delete from `personnages` where id=:id");
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
 
     public function updatePerso(Personnage $perso) {
-        global $db;
-        $stmt = $db->prepare("update personnages set nom=:nom, atk=:atk, pv=:pv where id=:id");
+        $stmt = $this->db->prepare("update personnages set nom=:nom, atk=:atk, pv=:pv where id=:id");
         $stmt->bindValue(':nom', $perso->getNom(), PDO::PARAM_STR);
         $stmt->bindValue(':atk', $perso->getAtk(), PDO::PARAM_INT);
         $stmt->bindValue(':pv', $perso->getPv(), PDO::PARAM_INT);

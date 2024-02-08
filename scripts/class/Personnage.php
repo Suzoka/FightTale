@@ -43,6 +43,11 @@ class Personnage
         return ($this->pv / $this->pvMax) * 100;
     }
 
+    public function getItems()
+    {
+        return $this->items;
+    }
+
     public function setPv($newPv)
     {
         if (!isset($this->pvMax)) {
@@ -88,7 +93,7 @@ class Personnage
         }
     }
 
-    public function setItem($items)
+    public function setItems($items)
     {
         $this->items = $items;
     }

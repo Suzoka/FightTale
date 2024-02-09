@@ -8,6 +8,7 @@
     <title>FightTale</title>
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/logos.css">
+    <link rel="shortcut icon" href="../img/fighttale.png" type="image/png">
 </head>
 
 <body>
